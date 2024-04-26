@@ -12,4 +12,5 @@ setup(
         'sqlparse==0.5.0',
         'tzdata==2024.1',
     ],
+    scripts=['scripts/demon_script.sh'],
 )
