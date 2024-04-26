@@ -36,8 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    "apps.api.apps.ApiConfig",
-    "apps.info.apps.InfoConfig"
+    "daemon_django_apps.api.apps.ApiConfig",
+    "daemon_django_apps.info.apps.InfoConfig"
 ]
 
 REST_FRAMEWORK = {
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'DemonDjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'daemon_django_apps/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

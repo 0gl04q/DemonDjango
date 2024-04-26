@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from apps.info.models import CPUInfo
+from daemon_django_apps.info.models import CPUInfo
 
 
 def get_list_info_cpu(request):

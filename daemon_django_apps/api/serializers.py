@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from apps.info.models import CPUInfo
+from daemon_django_apps.info.models import CPUInfo
 
 
 class CPUInfoSerializer(ModelSerializer):

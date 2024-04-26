@@ -1,7 +1,7 @@
 from rest_framework.generics import CreateAPIView
 
-from apps.api.serializers import CPUInfoSerializer
-from apps.info.models import CPUInfo
+from daemon_django_apps.api.serializers import CPUInfoSerializer
+from daemon_django_apps.info.models import CPUInfo
 
 
 class CreateCPUInfoAPIView(CreateAPIView):
