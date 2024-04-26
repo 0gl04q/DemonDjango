@@ -61,7 +61,7 @@ ROOT_URLCONF = 'DemonDjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'daemon_django_apps/templates'],
+        'DIRS': [BASE_DIR / 'daemon_django_apps/info/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
