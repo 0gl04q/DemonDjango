@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация</title>
+</head>
+<body>
+    
+    {% for cpu_info in cpu_list %}
+        <p>{{ cpu_info }}</p>
+    {% empty %}
+        На текущий момент список пуст
+    {% endfor %}
+
+</body>
+</html>
