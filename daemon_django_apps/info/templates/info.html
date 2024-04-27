@@ -1,16 +1,40 @@
+{% load django_bootstrap5 %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Информация</title>
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
 </head>
 <body>
-    
-    {% for cpu_info in cpu_list %}
-        <p>{{ cpu_info }}</p>
-    {% empty %}
-        На текущий момент список пуст
-    {% endfor %}
+<div class="container" id="container_table">
+    {% include 'table.html' %}
+</div>
 
+<script>
+    setInterval(() => {
+        var request = new XMLHttpRequest();
+
+        var url = '{% url 'info:list_info_cpu' %}'
+
+        request.open('GET', url)
+
+        request.setRequestHeader('Content-Type', 'application/x-www-form-url');
+
+        request.addEventListener('readystatechange', () => {
+            if (request.readyState === 4 && request.status === 200) {
+                var currentEl = document.querySelector('table');
+                currentEl.outerHTML = request.responseText
+            }
+        });
+
+        request.send();
+
+    }, 10000);
+</script>
 </body>
 </html>
