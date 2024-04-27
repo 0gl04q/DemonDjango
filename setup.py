@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='daemon_django_apps',
-    version='1.0',
+    version='1.1',
     packages=find_packages(),
     package_data={
         'daemon_django_apps': ['info/templates/*', 'scripts/daemon_script.sh'],
