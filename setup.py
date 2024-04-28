@@ -11,7 +11,7 @@ setup(
     install_requires=[
         'asgiref==3.8.1',
         'Django==5.0.4',
-        'django-bootstrap5==24.2'
+        'django-bootstrap5==24.2',
         'djangorestframework==3.15.1',
         'sqlparse==0.5.0',
         'tzdata==2024.1',
