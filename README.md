@@ -41,7 +41,7 @@ python manage.py migrate
 ```shell
 chmod +x ('Укажите папку с окружением')/lib/('Укажите свою версию Python')/site-packages/daemon_django_apps/scripts/daemon_script.sh 
 ```
-6) Создать демона с помощью systemctl
+6) Создать демона
 
 - Отрыть файл службы
 ```shell
