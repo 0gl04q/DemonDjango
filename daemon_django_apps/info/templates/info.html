@@ -10,25 +10,83 @@
     {% bootstrap_javascript %}
 
 </head>
-<body>
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
 <div class="container" id="container_table">
-    {% include 'table.html' %}
+    <table class="table text-center table-bordered" id="grid">
+    <thead>
+    <tr>
+        <th scope="col" rowspan="2">#</th>
+        <th scope="col" rowspan="2">
+         <small>
+            <a href=""
+               hx-get="{% url 'info:table_info_cpu_sort' filter_table='time' direction='descend' %}"
+               hx-target="tbody"
+               hx-swap="outerHTML">
+                ⇓
+            </a>
+             Время
+            <a href=""
+               hx-get="{% url 'info:table_info_cpu_sort' filter_table='time' direction='ascend' %}"
+               hx-target="tbody"
+               hx-swap="outerHTML">
+                ⇑
+            </a>
+        </small>
+        </th>
+        <th scope="col" rowspan="2">
+        <small>
+            <a href=""
+               hx-get="{% url 'info:table_info_cpu_sort' filter_table='cpu' direction='descend' %}"
+               hx-target="tbody"
+               hx-swap="outerHTML">
+                ⇓
+            </a>
+            Нагрузка CPU %
+            <a href=""
+               hx-get="{% url 'info:table_info_cpu_sort' filter_table='cpu' direction='ascend' %}"
+               hx-target="tbody"
+               hx-swap="outerHTML">
+                ⇑
+            </a>
+        </small>
+        </th>
+        <th scope="col" colspan="2">Минимальное</th>
+        <th scope="col" colspan="2">Максимальное</th>
+        <th scope="col" colspan="2">Среднее</th>
+    </tr>
+    <tr>
+        <th scope="col">Все</th>
+        <th scope="col">100</th>
+
+        <th scope="col">Все</th>
+        <th scope="col">100</th>
+
+        <th scope="col">Все</th>
+        <th scope="col">100</th>
+
+    </tr>
+    </thead>
+
+        {% include 'table.html' %}
+
+</table>
 </div>
-
+<script src="https://unpkg.com/htmx.org@1.9.4"></script>
 <script>
+
     setInterval(() => {
-        var request = new XMLHttpRequest();
+        const request = new XMLHttpRequest();
+        const tbody = document.querySelector('tbody')
 
-        var url = '{% url 'info:list_info_cpu' %}'
+        let url = '{% url 'info:table_info_cpu' %}'
 
-        request.open('GET', url)
+        request.open('GET', url);
 
         request.setRequestHeader('Content-Type', 'application/x-www-form-url');
 
         request.addEventListener('readystatechange', () => {
             if (request.readyState === 4 && request.status === 200) {
-                var currentEl = document.querySelector('table');
-                currentEl.outerHTML = request.responseText
+                tbody.outerHTML = request.responseText
             }
         });
 
@@ -36,5 +94,7 @@
 
     }, 10000);
 </script>
+
+
 </body>
 </html>

@@ -1,29 +1,4 @@
-
-<table class="table text-center table-bordered">
-    <thead>
-    <tr>
-        <th scope="col" rowspan="2">#</th>
-        <th scope="col" rowspan="2">Время</th>
-        <th scope="col" rowspan="2">Нагрузка CPU %</th>
-
-        <th scope="col" colspan="2">Минимальное</th>
-        <th scope="col" colspan="2">Максимальное</th>
-        <th scope="col" colspan="2">Среднее</th>
-    </tr>
-    <tr>
-        <th scope="col">Все</th>
-        <th scope="col">100</th>
-
-        <th scope="col">Все</th>
-        <th scope="col">100</th>
-
-        <th scope="col">Все</th>
-        <th scope="col">100</th>
-
-    </tr>
-    </thead>
-    <tbody>
-
+<tbody>
     {% for cpu_info in cpu_list %}
         <tr>
             <th scope="row">{{ forloop.counter }}</th>
@@ -40,5 +15,4 @@
             <td>{{ min_max_avg_100.cpu__avg }}%</td>
         </tr>
     {% endfor %}
-    </tbody>
-</table>
+</tbody>
